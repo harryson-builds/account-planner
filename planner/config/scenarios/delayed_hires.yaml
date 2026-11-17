@@ -1,0 +1,52 @@
+id: delayed_hires
+version: "1.0.0"
+name: Delayed FY27 hires
+description: Same caps as baseline; FY27 start dates shift two months later to show hiring-timing impact on fillable seats and ARR.
+fiscal:
+  label: FY27
+  start: 2026-02-01
+  end: 2027-01-31
+segments:
+  Commercial: { min: 0, max: 199 }
+  Mid-Market: { min: 200, max: 999 }
+  Enterprise: { min: 1000, max: null }
+eligibility:
+  qualification_gates: [PASS]
+  tiers: [A, B]
+  segments: [Enterprise, Mid-Market]
+  include_commercial: false
+routing:
+  Enterprise: { requires_ae: true, requires_sdr: false }
+  Mid-Market: { requires_ae: true, requires_sdr: true }
+  Commercial: { requires_ae: true, requires_sdr: true }
+caps:
+  Commercial: 30
+  Mid-Market: 18
+  Enterprise: 14
+viable_book_minimums:
+  Commercial: 10
+  Mid-Market: 8
+  Enterprise: 6
+lock_days: 90
+hiring_shift_months: 2
+activity:
+  qualifying_types: [call, email, meeting]
+  min_touches: 1
+  lookback_days: 90
+ramp:
+  standard: [0.25, 0.50, 0.75, 1.00]
+  experienced: [0.70, 0.90, 1.00]
+  ramp_fast: [0.50, 0.85, 1.00]
+arr:
+  currency: USD
+  unit: new-logo ARR
+  worked_rate: { conservative: 0.18, base: 0.28, upside: 0.40 }
+  opportunity_rate: { conservative: 0.12, base: 0.18, upside: 0.25 }
+  win_rate: { conservative: 0.15, base: 0.22, upside: 0.30 }
+  avg_arr_per_win: { conservative: 18000, base: 24000, upside: 32000 }
+  close_lag_months: { conservative: 3, base: 2, upside: 1 }
+  new_logo_arr_target:
+    WEST: 28000
+    CENTRAL: 18000
+    EAST: 24000
+    total: 70000

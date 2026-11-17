@@ -1,0 +1,38 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "account-assignment-planner"
+version = "0.1.0"
+description = "CRM-agnostic RevOps account assignment and FY capacity planner"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+  "streamlit>=1.32",
+  "pydantic>=2.6",
+  "pyyaml>=6.0",
+  "pandas>=2.2",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0"]
+
+[project.scripts]
+planner = "planner.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["planner*"]
+
+[tool.setuptools.package-data]
+planner = [
+  "config/scenarios/*.yaml",
+  "demo/*.csv",
+  "demo/*.yaml",
+  "templates/*.csv",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["planner/tests"]
+pythonpath = ["."]
+addopts = "-q"

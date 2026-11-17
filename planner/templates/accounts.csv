@@ -1,0 +1,2 @@
+account_id,display_name,employee_count,crm_segment,country,territory,industry,tier,qualification_gate,fit_score,intent_score,owner_id,sdr_id,parent_account_id,is_customer,has_open_opportunity,lock_end_date
+ACC-0001,Example Company,1200,Enterprise,US,WEST,Software,A,PASS,88,70,REP-E01,,ACC-0000,false,false,2026-06-01
